@@ -207,57 +207,51 @@
 
     <div class="container col-lg-8 col-lg-offset-2">
       {%- block header %}{% endblock %}
-      <div class="col-lg-8">
-        <div class="row">
-          <div class="col-lg-9">
-            {%- include "searchbox.html" %}
-          </div>
-          <div class="col-lg-3">
-            <ul class="pagination pagination-sm pull-right">
-              <li><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-up"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
+      <div class="row">
+        <div class="col-lg-8">
+            <ul class="list-inline">
+              <li class="list-group-item"><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
+              <li class="list-group-item">
+                <ul class="breadcrumb">
+                  {%- block rootrellink2 %}
+                  <li><a href="{{ pathto(master_doc) }}">{{ shorttitle|e }}</a></li>
+                  {%- endblock %}
+                  {%- for parent in parents %}
+                  <li><a href="{{ parent.link|e }}" {% if loop.last %}{{ accesskey("U") }}{% endif %}>{{ parent.title }}</a></li>
+                  {%- endfor %}
+                </ul>
+              </li>
+              <li class="list-group-item"><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
             </ul>
-          </div>
-          <div class="col-lg-12">
-            <ul class="breadcrumb">
-                {%- block rootrellink2 %}
-                <li><a href="{{ pathto(master_doc) }}">{{ shorttitle|e }}</a></li>
-                {%- endblock %}
-                {%- for parent in parents %}
-                <li><a href="{{ parent.link|e }}" {% if loop.last %}{{ accesskey("U") }}{% endif %}>{{ parent.title }}</a></li>
-                {%- endfor %}
-              </ul>
-            </div>
-          </div>
-
-          {%- block content %}
-          <div class="document">
-            {%- block document %}
-              <div class="documentwrapper">
-                {%- if render_sidebar %}
-                <div class="bodywrapper">
-                  {%- endif %}
-                  <div class="body" role="main">
-                    {% block body %} {% endblock %}
-                  </div>
+        </div>
+        <div class="col-lg-8">
+            {%- block content %}
+            <div class="document">
+              {%- block document %}
+                <div class="documentwrapper">
                   {%- if render_sidebar %}
+                  <div class="bodywrapper">
+                    {%- endif %}
+                    <div class="body" role="main">
+                      {% block body %} {% endblock %}
+                    </div>
+                    {%- if render_sidebar %}
+                  </div>
+                  {%- endif %}
                 </div>
-                {%- endif %}
+                {%- endblock %}
+
+                {%- block sidebar2 %}{% endblock %}
+                <div class="clearer"></div>
               </div>
               {%- endblock %}
 
-              {%- block sidebar2 %}{% endblock %}
-              <div class="clearer"></div>
-            </div>
-            {%- endblock %}
+        </div>
 
-      </div>
-
-      {%- block sidebar1 %} {{ sidebar() }} {% endblock %}
+        {%- block sidebar1 %} {{ sidebar() }} {% endblock %}
 
       {#- {%- block relbar2 %}{{ relbar() }}{% endblock %} #}
+      </div>
     </div>
     <footer class="col-lg-12">
       {%- block footer %}
@@ -278,5 +272,13 @@
         </div>
       {%- endblock %}
     </footer>
+
+    <div class="row">
+      <div class="col-lg-9">
+        {%- include "searchbox.html" %}
+      </div>
+    </div>
+
+    
   </body>
 </html>
