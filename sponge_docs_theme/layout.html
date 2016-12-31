@@ -42,11 +42,11 @@
     <div class="menu-right">
       <div><i class="fa fa-fw fa-globe"></i></div>
         <ul class="dropdown" id="ddlang">
-          {§#curver§}
+          {@#curver@}
           {|#langs|}
-          <li><a href="/{§currentversion§}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
+          <li><a href="/{@currentversion@}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
           {|/langs|}
-          {§/curver§}
+          {@/curver@}
         </ul>
     </div>
     <div class="menu-right">
@@ -167,11 +167,11 @@
 {%- endmacro %}
 
 {%- macro altlangs() %}
-  {§#curver§}
+  {@#curver@}
   {|#langs|}
-  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
+  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{@currentversion@}/{|crowdin_code|}/">
   {|/langs|}
-  {§/curver§}
+  {@/curver@}
   <link rel="alternate" hreflang="x-default" href="/">
 {%- endmacro %}
 
