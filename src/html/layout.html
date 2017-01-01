@@ -28,25 +28,27 @@
       <div class="sp-logo-chevron"><i class="fa fa-fw fa-chevron-down"></i></div>
       <div class="sp-logo-menu sp-skip-handler">
         <ul class="sp-logo-dropdown" id="ddleft">
-          <a href="https://www.spongepowered.org"><li><i class="fa-fw fa fa-home"></i>Homepage</li></a>
-          <a href="https://forums.spongepowered.org"><li><i class="fa-fw fa fa-comments"></i>Forums</li></a>
-          <a href="https://github.com/SpongePowered"><li><i class="fa-fw fa fa-code"></i>Code</li></a>
-          <a class="sp-forums-home" href="https://docs.spongepowered.org"><li class="active"><i class="fa-fw fa fa-book"></i>Docs</li></a>
-          <a href="https://jd.spongepowered.org"><li><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</li></a>
-          <a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><li><i class="fa-fw fa fa-plug"></i>Plugins</li></a>
-          <a href="https://www.spongepowered.org/downloads"><li><i class="fa-fw fa fa-download"></i>Downloads</li></a>
-          <a href="https://www.spongepowered.org/chat"><li><i class="fa-fw fa fa-comment"></i>Chat</li></a>
+          <a href="https://www.spongepowered.org"><li><i class="fa-fw fa fa-home"></i>홈페이지</li></a>
+          <a href="https://forums.spongepowered.org"><li><i class="fa-fw fa fa-comments"></i>포럼</li></a>
+          <a href="https://github.com/SpongePowered"><li><i class="fa-fw fa fa-code"></i>코드</li></a>
+          <a class="sp-forums-home" href="https://docs.spongepowered.org"><li class="active"><i class="fa-fw fa fa-book"></i>설명문서</li></a>
+              <a class="sp-forums-home2" href="https://sponge.finalchild.me"><li class="active"><i class="fa-fw fa fa-book"></i>설명문서(비공식 한국어 번역)</li></a>
+
+          <a href="https://jd.spongepowered.org"><li><i class="fa-fw fa fa-graduation-cap"></i>Javadoc</li></a>
+          <a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><li><i class="fa-fw fa fa-plug"></i>플러그인</li></a>
+          <a href="https://www.spongepowered.org/downloads"><li><i class="fa-fw fa fa-download"></i>다운로드</li></a>
+          <a href="https://www.spongepowered.org/chat"><li><i class="fa-fw fa fa-comment"></i>채팅</li></a>
         </ul>
       </div>
     </div>
     <div class="menu-right">
       <div><i class="fa fa-fw fa-globe"></i></div>
         <ul class="dropdown" id="ddlang">
-          {§#curver§}
+          {@#curver@}
           {|#langs|}
-          <li><a href="/{§currentversion§}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
+          <li><a href="/{@currentversion@}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
           {|/langs|}
-          {§/curver§}
+          {@/curver@}
         </ul>
     </div>
     <div class="menu-right">
@@ -69,14 +71,14 @@
         {% if next %}
         <li><a href="{{ next.link|e }}" title="Next Page"><i class="fa fa-fw fa-chevron-right"></i></a></li>
         {% endif %}
-        <li><a href="#top" title="To the top"><i class="fa fa-fw fa-chevron-up"></i></a></li>
-        <li><a href="{{ pathto(master_doc) }}" title="Home"><i class="fa fa-fw fa-home"></i></a></li>
+        <li><a href="#top" title="위로 가기"><i class="fa fa-fw fa-chevron-up"></i></a></li>
+        <li><a href="{{ pathto(master_doc) }}" title="홈"><i class="fa fa-fw fa-home"></i></a></li>
         {% if prev %}
-        <li><a href="{{ prev.link|e }}" title="Previous Page"><i class="fa fa-fw fa-chevron-left"></i></a></li>
+        <li><a href="{{ prev.link|e }}" title="이전 페이지"><i class="fa fa-fw fa-chevron-left"></i></a></li>
         {% endif %}
         <li>|</li>
         {% if pagename != "search" and pagename != "genindex" %}
-          <li><a href="https://{{ github_host }}/{{ github_user }}/{{ github_repo }}/blob/{{ github_branch }}/source/{{ pagename }}{{ source_suffix }}" title="Edit on GitHub"><i class="fa fa-fw fa-github"></i></a></li>
+          <li><a href="https://{{ github_host }}/{{ github_user }}/{{ github_repo }}/blob/{{ github_branch }}/source/{{ pagename }}{{ source_suffix }}" title="GitHub에서 편집"><i class="fa fa-fw fa-github"></i></a></li>
         {% endif %}
       </ul>
     </div>
@@ -167,11 +169,11 @@
 {%- endmacro %}
 
 {%- macro altlangs() %}
-  {§#curver§}
+  {@#curver@}
   {|#langs|}
-  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
+  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{@currentversion@}/{|crowdin_code|}/">
   {|/langs|}
-  {§/curver§}
+  {@/curver@}
   <link rel="alternate" hreflang="x-default" href="/">
 {%- endmacro %}
 
