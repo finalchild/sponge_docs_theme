@@ -4,7 +4,7 @@ var gutil = require('gulp-util');
 
 // Gulp plugins
 var filter = require('gulp-filter');
-var minifyCSS = require('gulp-minify-css');
+var minifyCSS = require('gulp-clean-css');
 var rename = require('gulp-rename');
 var stylus = require('gulp-stylus');
 var sourcemaps = require('gulp-sourcemaps');
