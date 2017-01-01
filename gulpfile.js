@@ -4,7 +4,7 @@ var gutil = require('gulp-util');
 
 // Gulp plugins
 var filter = require('gulp-filter');
-var minifyCSS = require('gulp-minify-css');
+var cleanCSS = require('gulp-clean-css');
 var rename = require('gulp-rename');
 var stylus = require('gulp-stylus');
 var sourcemaps = require('gulp-sourcemaps');
@@ -59,7 +59,7 @@ gulp.task('styl', function () {
   return gulp.src('./src/styl/index.styl')
     .pipe(styl())
     .pipe(rename('sponge.css'))
-    .pipe(minifyCSS())
+    .pipe(cleanCSS())
     .pipe(gulp.dest('./build/static/'));
 });
 
